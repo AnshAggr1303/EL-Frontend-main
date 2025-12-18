@@ -1,124 +1,98 @@
-export default function Footer() {
+"use client";
+
+import { ArrowUpIcon, MailIcon, MapPinIcon, PhoneIcon } from "lucide-react";
+import { Button } from "../../components/ui/button";
+
+const navigationLinks = ["Home", "About", "Services", "Contact Us"];
+
+export const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid md:grid-cols-4 gap-8">
-          <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <img src="/images/eshaan-logo.png" alt="Eshaan Logistics" className="h-12 w-auto brightness-0 invert" />
-            </div>
-            <p className="text-gray-400 text-sm">
-              India&apos;s leading logistics solution provider since 2011. Delivering excellence across the nation.
+    <footer className="relative bg-white">
+      <div className="max-w-[1400px] mx-auto px-16 py-20">
+        {/* MAIN GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-[1.6fr_0.8fr_1.6fr] gap-24 items-start">
+          
+          {/* BRAND */}
+          <div className="space-y-6">
+            <img
+              src="/images/logos/eshaan-logo.png"
+              alt="Eshaan Logistics"
+              className="h-14 w-auto"
+            />
+
+            <h2 className="font-sans font-medium text-[48px] text-black leading-tight">
+              Ehsaan Logistics
+            </h2>
+
+            <p className="font-sans text-[#6B6B6B] text-xl leading-relaxed max-w-[520px]">
+              We are dedicated to providing top-notch logistics solutions for
+              businesses worldwide. With years of experience in the industry, we
+              have built a strong reputation for delivering reliable and
+              efficient transportation and supply chain services.
             </p>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="font-bold text-lg mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="#" className="text-gray-400 hover:text-primary transition">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="text-gray-400 hover:text-primary transition">
-                  Services
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-primary transition">
-                  Contact
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-primary transition">
-                  Careers
-                </a>
-              </li>
-            </ul>
-          </div>
+          {/* NAVIGATION */}
+          <nav className="flex flex-col gap-6 pt-[88px]">
+            {navigationLinks.map((link, index) => (
+              <a
+                key={index}
+                href="#"
+                className="font-sans font-medium text-2xl text-black hover:text-blue transition-colors"
+              >
+                {link}
+              </a>
+            ))}
+          </nav>
 
-          {/* Services */}
-          <div>
-            <h3 className="font-bold text-lg mb-4">Services</h3>
-            <ul className="space-y-2 text-sm">
-              <li className="text-gray-400">Domestic Long-Haul</li>
-              <li className="text-gray-400">Domestic Short-Haul</li>
-              <li className="text-gray-400">Car Carrier Services</li>
-              <li className="text-gray-400">Container Transportation</li>
-            </ul>
-          </div>
+          {/* CONTACT INFO */}
+          <div className="flex flex-col gap-8 pt-[88px]">
+            {/* LOCATION */}
+            <div className="flex items-start gap-4">
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-red text-white flex-shrink-0">
+                <MapPinIcon className="w-5 h-5" />
+              </div>
+              <p className="font-sans text-xl text-black leading-relaxed">
+                Eshaan Logistics Pataudi Road, Wazirpur Chowk, Dhorka Village,
+                Sector 92, Gurgaon - 122505 (HR)
+              </p>
+            </div>
 
-          {/* Contact */}
-          <div>
-            <h3 className="font-bold text-lg mb-4">Contact Us</h3>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-start space-x-2">
-                <svg className="w-5 h-5 text-primary mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                  />
-                </svg>
-                <span className="text-gray-400">+91 98765 43210</span>
-              </li>
-              <li className="flex items-start space-x-2">
-                <svg className="w-5 h-5 text-primary mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
-                <span className="text-gray-400">info@eshaanlogistics.com</span>
-              </li>
-              <li className="flex items-start space-x-2">
-                <svg className="w-5 h-5 text-primary mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </svg>
-                <span className="text-gray-400">New Delhi, India</span>
-              </li>
-            </ul>
-          </div>
-        </div>
+            {/* EMAIL */}
+            <div className="flex items-start gap-4">
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-blue text-white flex-shrink-0">
+                <MailIcon className="w-5 h-5" />
+              </div>
+              <p className="font-sans text-xl text-black">
+                Subhash@eshaanlogistics.com
+              </p>
+            </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">© {new Date().getFullYear()} Eshaan Logistics. All rights reserved.</p>
-          <div className="flex space-x-4 mt-4 md:mt-0">
-            <a href="#" className="text-gray-400 hover:text-primary transition">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-              </svg>
-            </a>
-            <a href="#" className="text-gray-400 hover:text-primary transition">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
-              </svg>
-            </a>
-            <a href="#" className="text-gray-400 hover:text-primary transition">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-              </svg>
-            </a>
+            {/* PHONE */}
+            <div className="flex items-start gap-4">
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-red text-white flex-shrink-0">
+                <PhoneIcon className="w-5 h-5" />
+              </div>
+              <p className="font-sans text-xl text-black">
+                +91-9810374007
+              </p>
+            </div>
           </div>
         </div>
       </div>
+
+      {/* SCROLL TO TOP */}
+      <Button
+        onClick={scrollToTop}
+        className="absolute bottom-10 right-10 w-14 h-14 rounded-full bg-white shadow-lg hover:bg-gray-100 p-0"
+        aria-label="Scroll to top"
+      >
+        <ArrowUpIcon className="w-6 h-6 text-black" />
+      </Button>
     </footer>
-  )
-}
+  );
+};
