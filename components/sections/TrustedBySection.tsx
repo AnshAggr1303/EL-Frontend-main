@@ -66,12 +66,12 @@ export default function TrustedBySection() {
             rotate-[-10deg]
           ">
             {[
-              "/amazon-logo.png",
-              "/ntpc-logo-blue.jpg",
-              "/hfcl-logo-blue.jpg",
-              "/eastern-coalfields-limited-logo.jpg",
-              "/hyundai-logo-blue.jpg",
-              "/flipkart-logo.png",
+              "/images/logos/amazon.png",
+              "/images/logos/NTPC.png",
+              "/images/logos/HCFL.png",
+              "/images/logos/ECL.png",
+              "/images/logos/Hyundai.png",
+              "/images/logos/Flipkart.png",
             ].map((logo) => (
               <img
                 key={logo}
@@ -91,11 +91,11 @@ export default function TrustedBySection() {
             rotate-[10deg]
           ">
             {[
-              "/maruti-suzuki-logo.jpg",
-              "/toyota-logo-red.jpg",
-              "/kajaria-logo-blue.jpg",
-              "/v-guard-logo.jpg",
-              "/tata-logo-blue.jpg",
+              "/images/logos/MarutiSuzuki.png",
+              "/images/logos/Toyota.png",
+              "/images/logos/Kajaria.png",
+              "/images/logos/v-guard-logo.jpg",
+              "/images/logos/tata-logo-blue.jpg",
             ].map((logo) => (
               <img
                 key={logo}

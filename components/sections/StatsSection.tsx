@@ -26,17 +26,7 @@ export const StatsSection = (): JSX.Element => {
   return (
     <section className="relative w-full min-h-[1100px] bg-white overflow-visible flex flex-col items-center justify-start px-4 md:px-0">
       
-      {/* ================= BACKGROUND TEXT ================= */}
-      {/* Mobile Background Text */}
-      <div className="md:hidden absolute top-[-20px] left-1/2 -translate-x-1/2 [-webkit-text-stroke:0.5px_#fe0000] [font-family:'Clash_Display_Variable-Regular',Helvetica] font-normal text-transparent text-[80px] sm:text-[120px] tracking-[0] leading-[normal] whitespace-nowrap">
-        ESHAAN
-      </div>
-
-      <div className="md:hidden absolute top-[50px] sm:top-[80px] left-1/2 -translate-x-1/2 [-webkit-text-stroke:0.5px_#1e427e] [font-family:'Clash_Display_Variable-Regular',Helvetica] font-normal text-transparent text-[80px] sm:text-[120px] tracking-[0] leading-[normal] whitespace-nowrap">
-        LOGISTICS
-      </div>
-
-      {/* Desktop Background Text */}
+      {/* ================= DESKTOP BACKGROUND TEXT ================= */}
       <div className="hidden md:block absolute top-[calc(50.00%_-_621px)] left-[calc(50.00%_-_759px)] [-webkit-text-stroke:1.05px_#fe0000] [font-family:'Clash_Display_Variable-Regular',Helvetica] font-normal text-transparent text-[371.5px] tracking-[0] leading-[normal] whitespace-nowrap">
         ESHAAN
       </div>
