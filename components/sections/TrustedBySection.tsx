@@ -3,10 +3,10 @@
 export default function TrustedBySection() {
   return (
     <section className="w-full bg-[#F5F7FA] py-16 lg:py-24 border-t border-b border-[#E5E7EB] font-clash">
-      <div className="max-w-[1440px] mx-auto">
+      <div className="">
 
         {/* ================= HEADER ================= */}
-        <div className="text-center mb-12 lg:mb-20 px-6 lg:px-10">
+        <div className="max-w-[1440px] mx-auto text-center mb-12 lg:mb-20 px-6 lg:px-10">
           <div className="inline-flex items-center gap-2 px-6 py-2 bg-white rounded-full border border-[#E5E7EB] mb-6">
             <span className="w-2 h-2 bg-[#fe0000] rounded-full" />
             <span className="text-sm sm:text-base font-medium">
