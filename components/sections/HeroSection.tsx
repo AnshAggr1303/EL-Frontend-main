@@ -62,21 +62,19 @@ export default function HeroSection() {
               management.
             </p>
 
+            {/* CERTIFICATIONS (NO WHITE WRAPPER, SAME BG, CIRCULAR) */}
             <div className="flex items-center gap-6">
-              <div className="w-[105px] h-[105px] rounded-full bg-white shadow-sm flex items-center justify-center">
-                <img
-                  src="/images/certifications/iso-certification.png"
-                  alt="ISO"
-                  className="w-[80%] h-[80%] object-contain"
-                />
-              </div>
-              <div className="w-[105px] h-[105px] rounded-full bg-white shadow-sm flex items-center justify-center">
-                <img
-                  src="/images/certifications/iba-logo.png"
-                  alt="IBA"
-                  className="w-[80%] h-[80%] object-contain"
-                />
-              </div>
+              <img
+                src="/images/certifications/iso-certification.jpg"
+                alt="ISO"
+                className="w-[105px] h-[105px] rounded-full object-contain bg-transparent"
+              />
+
+              <img
+                src="/images/certifications/iba-logo.png"
+                alt="IBA"
+                className="w-[105px] h-[105px] rounded-full object-contain bg-transparent"
+              />
             </div>
           </div>
 
@@ -84,14 +82,14 @@ export default function HeroSection() {
       </div>
 
       {/* ================= TRUCK ================= */}
-      <div className="relative mt-10 lg:mt-0 lg:absolute lg:bottom-0 lg:right-0 lg:w-[65%] z-10">
+      <div className="relative mt-10 lg:mt-0 lg:absolute lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2 lg:w-[65%] z-10">
         <img
           src="/images/trucks/mahindra-truck.png"
           alt="Logistics Truck"
           className="
             w-full 
             max-w-[1080px] 
-            ml-auto 
+            mx-auto 
             object-contain 
             lg:translate-y-[10%]
           "
