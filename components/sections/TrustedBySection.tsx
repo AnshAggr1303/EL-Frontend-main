@@ -27,33 +27,6 @@ export default function TrustedBySection() {
           </p>
         </div>
 
-        {/* ================= MOBILE LOGOS =================
-        <div className="block lg:hidden space-y-6 px-6 lg:px-10">
-          {[ 
-            ["/amazon-logo.png", "/ntpc-logo-blue.jpg", "/hfcl-logo-blue.jpg"],
-            ["/hyundai-logo-blue.jpg", "/flipkart-logo.png", "/tata-logo-blue.jpg"]
-          ].map((row, idx) => (
-            <div
-              key={idx}
-              className="flex gap-6 overflow-x-auto scrollbar-hide"
-            >
-              {row.map((logo) => (
-                <div
-                  key={logo}
-                  className="min-w-[140px] h-[90px] bg-white rounded-xl shadow-sm
-                             flex items-center justify-center px-4"
-                >
-                  <img
-                    src={logo}
-                    alt="Client logo"
-                    className="max-h-10 object-contain"
-                  />
-                </div>
-              ))}
-            </div>
-          ))}
-        </div> */}
-
         {/* ================= DESKTOP DIAGONAL STRIPS ================= */}
         <div className="relative h-[420px] overflow-x-clip">
 

@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
+import localFont from "next/font/local";
 
 export const metadata: Metadata = {
   title: "Eshaan Logistics - India's Leading Logistics Solution Provider",
@@ -25,6 +26,7 @@ export const metadata: Metadata = {
     apple: "/apple-icon.png",
   },
 }
+
 
 export default function RootLayout({
   children,
