@@ -4,90 +4,100 @@ import { Button } from "@/components/ui/button"
 
 export default function HeroSection() {
   return (
-    <section className="relative bg-[#F5F7FA] overflow-hidden pt-[96px] min-h-[90vh]">
-      {/* BACKGROUND STROKE TEXT */}
-      <div className="hidden md:block absolute inset-0 z-0 pointer-events-none">
-        {/* ESHAAN */}
-        <div className="absolute left-[80px] top-[260px] text-[320px] font-bold text-transparent opacity-25 [-webkit-text-stroke:1px_#1e427e]">
+    <section className="relative w-full min-h-[85vh] bg-[#F5F7FA] overflow-hidden font-clash">
+
+      {/* ================= BACKGROUND STROKE TEXT ================= */}
+      <div className="hidden lg:block absolute inset-0 pointer-events-none z-0">
+        <div className="absolute left-20 top-[55%] -translate-y-1/2 text-[300px] font-bold text-transparent opacity-40 [-webkit-text-stroke:1px_#1e427e] whitespace-nowrap">
           ESHAAN
         </div>
-
-        {/* LOGISTICS — MOVED UP */}
-        <div className="absolute left-[80px] top-[540px] text-[320px] font-bold text-transparent opacity-25 [-webkit-text-stroke:1px_#1e427e]">
+        <div className="absolute left-20 top-[82%] -translate-y-1/2 text-[300px] font-bold text-transparent opacity-40 [-webkit-text-stroke:1px_#1e427e] whitespace-nowrap">
           LOGISTICS
         </div>
       </div>
 
-      {/* MAIN CONTENT */}
-      <div className="relative z-20 max-w-[1360px] mx-auto px-6 md:px-10">
-        <div className="grid grid-cols-1 md:grid-cols-[52%_48%] gap-12 items-start">
-          {/* LEFT — HEADING */}
-          <div>
-            <h1 className="font-bold leading-[1.05]">
-              {/* Line 1 */}
-              <span className="block text-[#fe0000] text-[36px] md:text-[56px]">
-                INDIA&apos;S LEADING <span className="inline-block align-middle">🚚</span>
-              </span>
+      {/* ================= CONTENT ================= */}
+      <div className="relative z-10 max-w-[1360px] mx-auto px-6 lg:px-10 pt-16 lg:pt-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
-              {/* Line 2 */}
-              <span className="block text-black text-[40px] md:text-[60px]">
+          {/* LEFT */}
+          <div className="flex flex-col gap-6">
+            <h1 className="font-bold leading-[1.05]">
+              <span className="block text-[#fe0000] text-[34px] sm:text-[42px] lg:text-[50px]">
+                INDIA&apos;S LEADING 🚚
+              </span>
+              <span className="block text-black text-[34px] sm:text-[42px] lg:text-[50px]">
                 LOGISTICS SOLUTION
               </span>
-
-              {/* Line 3 — FORCE SINGLE LINE */}
-              <span className="block text-black text-[40px] md:text-[60px] whitespace-nowrap">
-                PROVIDER SINCE <span className="text-[#fe0000]">2011</span>
+              <span className="block text-black text-[34px] sm:text-[42px] lg:text-[50px]">
+                PROVIDER SINCE{" "}
+                <span className="text-[#fe0000]">2011</span>
               </span>
             </h1>
 
             <Button
-              onClick={() =>
-                window.dispatchEvent(new CustomEvent("openQuoteModal"))
-              }
-              className="mt-8 bg-[#fe0000] hover:bg-[#fe0000]/90 text-white h-[52px] px-8 text-lg rounded-md"
+              onClick={() => window.dispatchEvent(new CustomEvent("openQuoteModal"))}
+              className="
+                w-fit 
+                px-7 
+                py-6 
+                bg-[#fe0000] 
+                hover:bg-[#fe0000]/90 
+                rounded-lg 
+                text-white 
+                text-base 
+                sm:text-lg 
+                font-semibold
+              "
             >
               Get Instant Quote
             </Button>
           </div>
 
-          {/* RIGHT — TEXT + BADGES */}
-          <div className="pt-2">
-            <p className="text-[18px] md:text-[22px] leading-[1.6] text-black max-w-[520px]">
+          {/* RIGHT */}
+          <div className="flex flex-col gap-6 max-w-xl">
+            <p className="text-black text-[17px] sm:text-[19px] leading-relaxed">
               Delivering excellence through technology driven logistics solutions
               with guaranteed on-time delivery and complete supply chain
               management.
             </p>
 
-            <div className="flex gap-6 mt-8">
-              {["iso-certification.png", "iba-logo.png"].map((img) => (
-                <div
-                  key={img}
-                  className="w-[100px] h-[100px] md:w-[120px] md:h-[120px] rounded-full bg-white shadow flex items-center justify-center"
-                >
-                  <img
-                    src={`/images/certifications/${img}`}
-                    alt=""
-                    className="max-w-full max-h-full object-contain"
-                  />
-                </div>
-              ))}
+            <div className="flex items-center gap-6">
+              <div className="w-[105px] h-[105px] rounded-full bg-white shadow-sm flex items-center justify-center">
+                <img
+                  src="/images/certifications/iso-certification.png"
+                  alt="ISO"
+                  className="w-[80%] h-[80%] object-contain"
+                />
+              </div>
+              <div className="w-[105px] h-[105px] rounded-full bg-white shadow-sm flex items-center justify-center">
+                <img
+                  src="/images/certifications/iba-logo.png"
+                  alt="IBA"
+                  className="w-[80%] h-[80%] object-contain"
+                />
+              </div>
             </div>
           </div>
+
         </div>
       </div>
 
-      {/* TRUCK */}
-      <div className="absolute bottom-[-60px] md:bottom-[-80px] left-0 w-full z-10">
-        <div className="max-w-[1360px] mx-auto px-6 md:px-10">
-          <div className="flex justify-end">
-            <img
-              src="/images/trucks/mahindra-truck.png"
-              alt="Eshaan Logistics Truck"
-              className="w-full max-w-[900px] md:max-w-[1100px]"
-            />
-          </div>
-        </div>
+      {/* ================= TRUCK ================= */}
+      <div className="relative mt-10 lg:mt-0 lg:absolute lg:bottom-0 lg:right-0 lg:w-[65%] z-10">
+        <img
+          src="/images/trucks/mahindra-truck.png"
+          alt="Logistics Truck"
+          className="
+            w-full 
+            max-w-[1080px] 
+            ml-auto 
+            object-contain 
+            lg:translate-y-[10%]
+          "
+        />
       </div>
+
     </section>
   )
 }
