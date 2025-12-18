@@ -1,3 +1,4 @@
+//MapSection.tsx
 import React, { JSX } from "react";
 import { Badge } from "../../components/ui/badge";
 export const MapSection = (): JSX.Element => {
