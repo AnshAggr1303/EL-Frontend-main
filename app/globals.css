@@ -1,5 +1,5 @@
 /* =========================================================
-   CLASH DISPLAY – SELF HOSTED (PUBLIC FOLDER)
+   CLASH DISPLAY – SELF HOSTED
    Path: /public/fonts/ClashDisplay_Complete/Fonts/OTF/
 ========================================================= */
 
@@ -85,7 +85,7 @@
 
   --radius: 0.625rem;
 
-  /* 🔥 FONT VARIABLES */
+  /* 🔥 FONT */
   --font-clash: "Clash Display", system-ui, -apple-system, sans-serif;
 }
 
@@ -103,8 +103,7 @@
 }
 
 /* =========================================================
-   🚨 MOST IMPORTANT PART
-   MAKE TAILWIND SANS = CLASH DISPLAY
+   🚨 IMPORTANT: TAILWIND SANS = CLASH DISPLAY
 ========================================================= */
 
 @theme inline {
@@ -126,7 +125,7 @@
 }
 
 /* =========================================================
-   BASE STYLES (NO INTER, NO SYSTEM-UI OVERRIDE)
+   BASE STYLES
 ========================================================= */
 
 @layer base {
@@ -135,7 +134,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground font-sans antialiased;
   }
 }
 
