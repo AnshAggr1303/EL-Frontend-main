@@ -3,10 +3,10 @@
 export default function TrustedBySection() {
   return (
     <section className="w-full bg-[#F5F7FA] py-16 lg:py-24 border-t border-b border-[#E5E7EB] font-clash">
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div className="max-w-[1440px] mx-auto">
 
         {/* ================= HEADER ================= */}
-        <div className="text-center mb-12 lg:mb-20">
+        <div className="text-center mb-12 lg:mb-20 px-6 lg:px-10">
           <div className="inline-flex items-center gap-2 px-6 py-2 bg-white rounded-full border border-[#E5E7EB] mb-6">
             <span className="w-2 h-2 bg-[#fe0000] rounded-full" />
             <span className="text-sm sm:text-base font-medium">
@@ -27,8 +27,8 @@ export default function TrustedBySection() {
           </p>
         </div>
 
-        {/* ================= MOBILE LOGOS ================= */}
-        <div className="block lg:hidden space-y-6">
+        {/* ================= MOBILE LOGOS =================
+        <div className="block lg:hidden space-y-6 px-6 lg:px-10">
           {[ 
             ["/amazon-logo.png", "/ntpc-logo-blue.jpg", "/hfcl-logo-blue.jpg"],
             ["/hyundai-logo-blue.jpg", "/flipkart-logo.png", "/tata-logo-blue.jpg"]
@@ -52,10 +52,10 @@ export default function TrustedBySection() {
               ))}
             </div>
           ))}
-        </div>
+        </div> */}
 
         {/* ================= DESKTOP DIAGONAL STRIPS ================= */}
-        <div className="relative hidden lg:block h-[420px]">
+        <div className="relative h-[420px] overflow-x-clip">
 
           {/* STRIP 1 */}
           <div className="
@@ -77,7 +77,7 @@ export default function TrustedBySection() {
                 key={logo}
                 src={logo}
                 alt="Client"
-                className="h-10 object-contain"
+                className="object-contain py-4 w-40"
               />
             ))}
           </div>
