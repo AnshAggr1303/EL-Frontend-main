@@ -2,19 +2,10 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { X, Menu, ChevronDown } from "lucide-react";
-
-const servicesItems = [
-  "Domestic Long-Haul",
-  "Domestic Short-Haul",
-  "ODC Carrier and ODC TRUCK-PICK",
-  "ODC/BULK/General PWC-SDL",
-];
+import { X, Menu } from "lucide-react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
   return (
     <>
@@ -50,35 +41,13 @@ export default function Navbar() {
               <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-[#1e427e] group-hover:w-full transition-all duration-300"></span>
             </a>
 
-            <div
-              className="relative"
-              onMouseEnter={() => setServicesOpen(true)}
-              onMouseLeave={() => setServicesOpen(false)}
+            <a
+              href="#services"
+              className="font-clash text-[18px] lg:text-[20px] font-medium text-black hover:text-[#1e427e] transition-colors duration-200 relative group"
             >
-              <button className="font-clash text-[18px] lg:text-[20px] font-medium text-black hover:text-[#1e427e] transition-colors duration-200 relative group flex items-center gap-1">
-                Services
-                <ChevronDown
-                  className={`w-4 h-4 transition-transform duration-200 ${
-                    servicesOpen ? "rotate-180" : ""
-                  }`}
-                />
-                <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-[#1e427e] group-hover:w-full transition-all duration-300"></span>
-              </button>
-
-              {servicesOpen && (
-                <div className="absolute top-full left-0 mt-2 w-[280px] bg-white border border-[#cfcfcf] rounded-lg shadow-lg overflow-hidden">
-                  {servicesItems.map((service) => (
-                    <a
-                      key={service}
-                      href={`#service-${service}`}
-                      className="block font-clash px-4 py-3 text-[16px] text-black hover:bg-[#f5f7fa] hover:text-[#1e427e] transition-colors duration-200 border-b border-[#eeeeee] last:border-b-0"
-                    >
-                      {service}
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
+              Services
+              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-[#1e427e] group-hover:w-full transition-all duration-300"></span>
+            </a>
           </nav>
 
           <Button
@@ -102,60 +71,45 @@ export default function Navbar() {
             )}
           </button>
         </div>
+      </header>
 
+      {/* Backdrop Overlay */}
+      {open && (
         <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out border-t border-[#cfcfcf] ${
-            open ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
-          }`}
-        >
-          <div className="px-4 sm:px-6 py-6 space-y-4 bg-white">
-            <a
-              href="#home"
-              onClick={() => setOpen(false)}
-              className="block font-clash text-[20px] sm:text-[22px] font-medium text-black hover:text-[#1e427e] py-2 transition-colors duration-200"
-            >
-              Home
-            </a>
+          className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 md:hidden"
+          style={{ top: 0 }}
+          onClick={() => setOpen(false)}
+          aria-hidden="true"
+        />
+      )}
 
-            <a
-              href="#testimonials"
-              onClick={() => setOpen(false)}
-              className="block font-clash text-[20px] sm:text-[22px] font-medium text-black hover:text-[#1e427e] py-2 transition-colors duration-200"
-            >
-              About
-            </a>
-
-            <div>
-              <button
-                onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                className="flex items-center justify-between w-full font-clash text-[20px] sm:text-[22px] font-medium text-black hover:text-[#1e427e] py-2 transition-colors duration-200"
+      {/* Mobile Menu Overlay */}
+      {open && (
+        <div className="fixed top-[70px] sm:top-[80px] left-0 right-0 z-50 md:hidden bg-white border-b border-[#cfcfcf] shadow-lg animate-in slide-in-from-top duration-300">
+          <div className="px-4 sm:px-6 py-6 space-y-4">
+              <a
+                href="#home"
+                onClick={() => setOpen(false)}
+                className="block font-clash text-[20px] sm:text-[22px] font-medium text-black hover:text-[#1e427e] py-2 transition-colors duration-200"
+              >
+                Home
+              </a>
+  
+              <a
+                href="#testimonials"
+                onClick={() => setOpen(false)}
+                className="block font-clash text-[20px] sm:text-[22px] font-medium text-black hover:text-[#1e427e] py-2 transition-colors duration-200"
+              >
+                About
+              </a>
+  
+              <a
+                href="#services"
+                onClick={() => setOpen(false)}
+                className="block font-clash text-[20px] sm:text-[22px] font-medium text-black hover:text-[#1e427e] py-2 transition-colors duration-200"
               >
                 Services
-                <ChevronDown
-                  className={`w-5 h-5 transition-transform duration-200 ${
-                    mobileServicesOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-
-              {mobileServicesOpen && (
-                <div className="mt-2 ml-4 space-y-2">
-                  {servicesItems.map((service) => (
-                    <a
-                      key={service}
-                      href={`#service-${service}`}
-                      onClick={() => {
-                        setOpen(false);
-                        setMobileServicesOpen(false);
-                      }}
-                      className="block font-clash text-[16px] sm:text-[18px] text-gray-700 hover:text-[#1e427e] py-2 transition-colors duration-200"
-                    >
-                      {service}
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
+              </a>
 
             <Button
               onClick={() => {
@@ -168,14 +122,6 @@ export default function Navbar() {
             </Button>
           </div>
         </div>
-      </header>
-
-      {open && (
-        <div
-          className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 md:hidden"
-          onClick={() => setOpen(false)}
-          aria-hidden="true"
-        />
       )}
     </>
   );
