@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 "use client"
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -62,7 +61,6 @@ export default function WhyChooseSection() {
     setIndex((p) => (p === 0 ? 7 : p - 1))
   }
 
-  // Auto-play functionality
   useEffect(() => {
     const timer = setInterval(() => {
       setDirection(1)
@@ -73,76 +71,28 @@ export default function WhyChooseSection() {
   }, [])
 
   return (
-    <section className="min-h-screen max-w-[1440px] mx-auto px-6 md:px-10 py-20 font-sans overflow-hidden">
+    <section id="why-choose" className="min-h-screen max-w-[1440px] mx-auto px-6 md:px-10 py-20 font-sans">
       {/* HEADER */}
       <div className="grid md:grid-cols-[1fr_auto_1fr] gap-10 items-start">
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-[18px] md:text-[26px] max-w-[520px] text-gray-700 leading-relaxed"
-        >
+        <p className="text-[18px] md:text-[26px] max-w-[520px]">
           Trusted, technology-led logistics with owned fleet, pan-India reach,
           and an on-time delivery commitment.
-        </motion.p>
+        </p>
 
-        <motion.div 
-          initial={{ scaleY: 0 }}
-          whileInView={{ scaleY: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="hidden md:block w-px h-[120px] bg-gradient-to-b from-transparent via-gray-300 to-transparent origin-top"
-        />
+        <div className="hidden md:block w-px h-[120px] bg-gray-300" />
 
-        <motion.h2 
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-[36px] md:text-[64px] font-bold leading-tight"
-        >
-          <motion.span 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-[#1e427e]"
-          >
-            WHY CHOOSE
-          </motion.span>
+        <h2 className="text-[36px] md:text-[64px] font-bold leading-tight">
+          <span className="text-[#1e427e]">WHY CHOOSE</span>
           <br />
-          <motion.span 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-black"
-          >
-            ESHAAN
-          </motion.span>
-          <motion.span 
-            initial={{ opacity: 0, scale: 0 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.8, type: "spring" }}
-            className="text-[#fe0000]"
-          >
-            {" ?"}
-          </motion.span>
-        </motion.h2>
+          <span className="text-black">ESHAAN</span>
+          <span className="text-[#fe0000]"> ?</span>
+        </h2>
       </div>
 
       {/* IMAGE */}
       <div className="mt-12 grid md:grid-cols-[160px_1fr] gap-10 items-end">
         {/* COUNTER */}
-        <motion.div 
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex flex-col gap-6"
-        >
+        <div className="flex flex-col gap-6">
           <div className="flex items-baseline gap-2">
             <AnimatePresence mode="wait">
               <motion.span
@@ -150,7 +100,7 @@ export default function WhyChooseSection() {
                 initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 exit={{ opacity: 0, y: -20, filter: "blur(4px)" }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
                 className="text-[56px] md:text-[72px] font-bold text-[#1e427e] leading-none"
               >
                 {String(index + 1).padStart(2, "0")}
@@ -161,32 +111,24 @@ export default function WhyChooseSection() {
           </div>
 
           <div className="flex gap-4">
-            <motion.button
-              whileHover={{ scale: 1.1, backgroundColor: "#1e427e", color: "#fff" }}
-              whileTap={{ scale: 0.95 }}
+            <button
               onClick={goToPrev}
-              className="w-10 h-10 border-2 border-gray-300 rounded-full flex items-center justify-center text-gray-600 transition-all duration-300 hover:border-[#1e427e]"
+              className="w-10 h-10 border-2 border-gray-300 rounded-full flex items-center justify-center text-gray-600 hover:bg-[#1e427e] hover:text-white hover:border-[#1e427e] transition-colors duration-300"
             >
               ←
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.1, backgroundColor: "#1e427e", color: "#fff" }}
-              whileTap={{ scale: 0.95 }}
+            </button>
+            <button
               onClick={goToNext}
-              className="w-10 h-10 border-2 border-gray-300 rounded-full flex items-center justify-center text-gray-600 transition-all duration-300 hover:border-[#1e427e]"
+              className="w-10 h-10 border-2 border-gray-300 rounded-full flex items-center justify-center text-gray-600 hover:bg-[#1e427e] hover:text-white hover:border-[#1e427e] transition-colors duration-300"
             >
               →
-            </motion.button>
+            </button>
           </div>
-        </motion.div>
+        </div>
 
         {/* IMAGE CARD */}
-        <motion.div 
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="relative h-[320px] md:h-[55vh] rounded-[32px] overflow-hidden shadow-2xl group cursor-pointer"
+        <div 
+          className="relative h-[320px] md:h-[55vh] rounded-[32px] overflow-hidden shadow-2xl cursor-pointer"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
@@ -194,65 +136,45 @@ export default function WhyChooseSection() {
             <motion.div
               key={index}
               custom={direction}
-              initial={{ 
-                opacity: 0, 
-                x: direction > 0 ? 300 : -300,
-                scale: 0.95
-              }}
-              animate={{ 
-                opacity: 1, 
-                x: 0,
-                scale: 1
-              }}
-              exit={{ 
-                opacity: 0, 
-                x: direction > 0 ? -300 : 300,
-                scale: 0.95
-              }}
-              transition={{ 
-                duration: 0.6, 
-                ease: [0.43, 0.13, 0.23, 0.96]
-              }}
+              initial={{ opacity: 0, x: direction > 0 ? 300 : -300, scale: 0.95 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              exit={{ opacity: 0, x: direction > 0 ? -300 : 300, scale: 0.95 }}
+              transition={{ duration: 0.4, ease: [0.43, 0.13, 0.23, 0.96] }}
               className="absolute inset-0"
             >
-              <motion.img
+              <img
                 src={current.image}
                 alt={current.title}
                 className="w-full h-full object-cover"
-                animate={{ scale: isHovered ? 1.05 : 1 }}
-                transition={{ duration: 0.4 }}
+                style={{ transform: isHovered ? 'scale(1.05)' : 'scale(1)', transition: 'transform 0.4s' }}
               />
             </motion.div>
           </AnimatePresence>
 
-          {/* Gradient Overlay - darker on hover */}
-          <motion.div 
-            animate={{ 
+          <div 
+            className="absolute inset-0 pointer-events-none transition-all duration-300"
+            style={{ 
               background: isHovered 
                 ? "linear-gradient(to top, rgba(0,0,0,0.85), transparent)" 
                 : "linear-gradient(to top, rgba(0,0,0,0.7), transparent)"
             }}
-            transition={{ duration: 0.3 }}
-            className="absolute inset-0 pointer-events-none" 
           />
 
           {/* Text Content */}
           <div className="absolute bottom-6 left-6 right-6">
-            {/* Title */}
             <AnimatePresence mode="wait">
               <motion.h3
                 key={index}
                 initial={{ opacity: 0, y: 30, filter: "blur(4px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 exit={{ opacity: 0, y: -30, filter: "blur(4px)" }}
-                transition={{ duration: 0.5, delay: 0.1, ease: "easeInOut" }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
                 className="font-clash text-white text-[28px] md:text-[40px] font-semibold"
               >
                 {current.title}
               </motion.h3>
             </AnimatePresence>
 
-            {/* Description - appears on hover */}
             <AnimatePresence>
               {isHovered && (
                 <motion.p
@@ -260,7 +182,7 @@ export default function WhyChooseSection() {
                   initial={{ opacity: 0, y: 20, height: 0 }}
                   animate={{ opacity: 1, y: 0, height: "auto" }}
                   exit={{ opacity: 0, y: 20, height: 0 }}
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
                   className="font-clash text-white/90 text-[14px] md:text-[18px] mt-3 leading-relaxed"
                 >
                   {current.description}
@@ -268,26 +190,10 @@ export default function WhyChooseSection() {
               )}
             </AnimatePresence>
 
-            {/* Decorative Element */}
-            <motion.div
-              key={`line-${index}`}
-              initial={{ width: 0 }}
-              animate={{ width: "100px" }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="h-1 bg-[#fe0000] rounded-full mt-4"
-            />
+            <div className="h-1 bg-[#fe0000] rounded-full mt-4 w-[100px]" />
           </div>
-        </motion.div>
+        </div>
       </div>
-
-      {/* Background Decorative Elements */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0 }}
-        whileInView={{ opacity: 0.05, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1, delay: 0.5 }}
-        className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#1e427e] rounded-full blur-[150px] pointer-events-none -z-10"
-      />
     </section>
   )
 }

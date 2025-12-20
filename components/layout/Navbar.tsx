@@ -1,11 +1,18 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { X, Menu } from "lucide-react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setOpen(false);
+    }
+  };
 
   return (
     <>
@@ -25,38 +32,37 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8 lg:gap-12">
-            <a
-              href="#home"
-              className="font-clash text-[18px] lg:text-[20px] font-medium text-black hover:text-[#1e427e] transition-colors duration-200 relative group"
+            <button
+              onClick={() => scrollToSection('home')}
+              className="font-clash text-[18px] lg:text-[20px] font-medium text-black hover:text-[#1e427e] transition-colors duration-300 relative group"
             >
               Home
               <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-[#1e427e] group-hover:w-full transition-all duration-300"></span>
-            </a>
+            </button>
 
-            <a
-              href="#testimonials"
-              className="font-clash text-[18px] lg:text-[20px] font-medium text-black hover:text-[#1e427e] transition-colors duration-200 relative group"
+            <button
+              onClick={() => scrollToSection('about')}
+              className="font-clash text-[18px] lg:text-[20px] font-medium text-black hover:text-[#1e427e] transition-colors duration-300 relative group"
             >
               About
               <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-[#1e427e] group-hover:w-full transition-all duration-300"></span>
-            </a>
+            </button>
 
-            <a
-              href="#services"
-              className="font-clash text-[18px] lg:text-[20px] font-medium text-black hover:text-[#1e427e] transition-colors duration-200 relative group"
+            <button
+              onClick={() => scrollToSection('services')}
+              className="font-clash text-[18px] lg:text-[20px] font-medium text-black hover:text-[#1e427e] transition-colors duration-300 relative group"
             >
               Services
               <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-[#1e427e] group-hover:w-full transition-all duration-300"></span>
-            </a>
+            </button>
           </nav>
 
-          <Button
-            variant="outline"
+          <button
             onClick={() => window.dispatchEvent(new CustomEvent("openQuoteModal"))}
-            className="hidden md:inline-flex font-clash border-2 border-[#1e427e] text-[#1e427e] hover:bg-[#1e427e] hover:text-white text-[16px] lg:text-[18px] font-semibold px-5 lg:px-6 h-[44px] lg:h-[48px] rounded-lg transition-all duration-200"
+            className="hidden md:inline-flex font-clash border-2 border-[#1e427e] text-[#1e427e] hover:bg-[#1e427e] hover:text-white text-[16px] lg:text-[18px] font-semibold px-5 lg:px-6 h-[44px] lg:h-[48px] rounded-lg transition-all duration-300 items-center justify-center"
           >
             Get Instant Quote
-          </Button>
+          </button>
 
           <button
             onClick={() => setOpen(!open)}
@@ -85,41 +91,38 @@ export default function Navbar() {
 
       {/* Mobile Menu Overlay */}
       {open && (
-        <div className="fixed top-[70px] sm:top-[80px] left-0 right-0 z-50 md:hidden bg-white border-b border-[#cfcfcf] shadow-lg animate-in slide-in-from-top duration-300">
+        <div className="fixed top-[70px] sm:top-[80px] left-0 right-0 z-50 md:hidden bg-white border-b border-[#cfcfcf] shadow-lg">
           <div className="px-4 sm:px-6 py-6 space-y-4">
-              <a
-                href="#home"
-                onClick={() => setOpen(false)}
-                className="block font-clash text-[20px] sm:text-[22px] font-medium text-black hover:text-[#1e427e] py-2 transition-colors duration-200"
-              >
-                Home
-              </a>
-  
-              <a
-                href="#testimonials"
-                onClick={() => setOpen(false)}
-                className="block font-clash text-[20px] sm:text-[22px] font-medium text-black hover:text-[#1e427e] py-2 transition-colors duration-200"
-              >
-                About
-              </a>
-  
-              <a
-                href="#services"
-                onClick={() => setOpen(false)}
-                className="block font-clash text-[20px] sm:text-[22px] font-medium text-black hover:text-[#1e427e] py-2 transition-colors duration-200"
-              >
-                Services
-              </a>
+            <button
+              onClick={() => scrollToSection('home')}
+              className="block w-full text-left font-clash text-[20px] sm:text-[22px] font-medium text-black hover:text-[#1e427e] py-2 transition-colors duration-300"
+            >
+              Home
+            </button>
 
-            <Button
+            <button
+              onClick={() => scrollToSection('about')}
+              className="block w-full text-left font-clash text-[20px] sm:text-[22px] font-medium text-black hover:text-[#1e427e] py-2 transition-colors duration-300"
+            >
+              About
+            </button>
+
+            <button
+              onClick={() => scrollToSection('services')}
+              className="block w-full text-left font-clash text-[20px] sm:text-[22px] font-medium text-black hover:text-[#1e427e] py-2 transition-colors duration-300"
+            >
+              Services
+            </button>
+
+            <button
               onClick={() => {
                 setOpen(false);
                 window.dispatchEvent(new CustomEvent("openQuoteModal"));
               }}
-              className="w-full font-clash bg-[#fe0000] hover:bg-[#fe0000]/90 text-white h-[50px] sm:h-[52px] text-base sm:text-lg font-semibold rounded-lg mt-4 transition-all duration-200"
+              className="w-full font-clash bg-[#fe0000] hover:bg-[#fe0000]/90 text-white h-[50px] sm:h-[52px] text-base sm:text-lg font-semibold rounded-lg mt-4 transition-all duration-300"
             >
               Get Instant Quote
-            </Button>
+            </button>
           </div>
         </div>
       )}

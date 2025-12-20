@@ -89,7 +89,7 @@ export const ServicesSection = (): JSX.Element => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
             className="font-bold text-[32px] sm:text-[48px] lg:text-[68px] leading-tight"
           >
             <span className="text-[#131313]">HOW WE CAN 🤝</span>{" "}

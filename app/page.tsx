@@ -12,17 +12,13 @@ import QuoteModal from "@/components/modals/QuoteModal"
 import Navbar from "@/components/layout/Navbar"
 
 export default function HomePage() {
-  // Reset scroll position and clear hash on page load
   useEffect(() => {
-    // Remove hash from URL without triggering navigation
     if (window.location.hash) {
       window.history.replaceState(null, '', window.location.pathname)
     }
     
-    // Force scroll to top
     window.scrollTo(0, 0)
     
-    // Disable browser scroll restoration
     if ('scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual'
     }
